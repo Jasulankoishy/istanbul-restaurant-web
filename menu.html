@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="Menu categories and Turkish dish highlights at Istanbul Restaurant in Astana." name="description">
+<meta content="Sanzhar" name="author">
+<title>Menu — Istanbul Restaurant Astana</title>
+<!-- Pinned Bootstrap 5.3.8; local correction layer follows. --><link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="css/base.css" rel="stylesheet">
+<link rel="icon" type="image/jpeg" href="images/istanbul-logo.jpg">
+</head>
+<body class="menu-page">
+<!-- Author: Sanzhar. -->
+<a class="skip-link visually-hidden-focusable position-fixed top-0 start-0 m-3 btn btn-warning" href="#main-content">Skip to content</a>
+<header class="site-header sticky-top bg-body border-bottom">
+<div class="container">
+<nav aria-label="Main navigation" class="navbar navbar-expand-lg w-100" data-bs-theme="light"><a aria-label="Istanbul Restaurant home" class="navbar-brand me-auto" href="index.html">
+<img alt="Istanbul Turkish Taste logo" class="brand-logo object-fit-contain" src="images/istanbul-logo.jpg">
+</a><button aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#main-navbar" data-bs-toggle="collapse" type="button" id="navigation-toggle"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse justify-content-lg-end" id="main-navbar"><ul class="navbar-nav gap-lg-2 mb-2 mb-lg-0" id="navigation-links">
+<li class="nav-item"><a class="nav-link py-2" href="index.html">Home</a></li>
+<li class="nav-item"><a aria-current="page" class="nav-link py-2 active text-decoration-underline link-underline-warning link-offset-3" href="menu.html">Menu</a></li>
+<li class="nav-item"><a class="nav-link py-2" href="visit.html">Visit</a></li>
+<li class="nav-item"><a class="nav-link py-2" href="gallery.html">Gallery</a></li>
+<li class="nav-item"><a class="nav-link py-2" href="about.html">About</a></li>
+<li class="nav-item"><a class="nav-link py-2" href="faq.html">FAQ</a></li>
+<li class="nav-item"><a class="nav-link py-2" href="feedback.html">Feedback</a></li>
+</ul></div>
+</nav>
+</div>
+</header>
+<main id="main-content">
+<!-- This section connects the menu introduction to its visible heading. -->
+<section aria-labelledby="menu-title" class="container-fluid px-0 border-bottom">
+<div class="row g-0 align-items-stretch">
+<div class="page-hero-copy col-12 col-lg-6 d-flex flex-column justify-content-center p-4 p-md-5">
+<p class="small fw-bold text-uppercase text-brand-accent mb-3">Turkish kitchen</p>
+<h1 class="display-2 mb-4" id="menu-title">Menu highlights</h1>
+<p class="lead">
+            Breakfast, döner, hot dishes, pizza, salads and soups. Compare published prices and plan your meal.
+          </p>
+<p class="d-flex flex-wrap align-items-center gap-2 mt-4">
+<a class="btn btn-warning" href="#categories">Browse categories</a>
+<a class="fw-semibold text-decoration-underline" href="#dish-question">Ask about a dish →</a>
+<a class="btn btn-outline-dark" href="#assignment-4">Build your basket</a></p>
+</div>
+<div class="page-hero-media col-12 col-lg-6 m-0">
+<img alt="Prepared dining table inside Istanbul Restaurant" class="img-fluid w-100 h-100 object-fit-cover" src="images/restaurant-interior-table.jpg" decoding="async">
+</div>
+</div></section>
+<section aria-labelledby="categories-title" class="py-5" id="categories"><div class="container">
+<p class="small fw-bold text-uppercase text-brand-accent">Menu selection</p>
+<h2 class="display-5 mb-4" id="categories-title">Choose something for your visit</h2>
+<p id="menu-price-note">Prices in tenge from the published menu. Confirm today's prices, ingredients and availability with the restaurant before ordering. This page helps you plan a meal; it does not place an order.</p>
+<!-- assignment-4: menu filters and basket calculations -->
+<div id="assignment-4" class="menu-tools">
+<div class="row g-3 mb-4">
+<div class="col-md-6"><label for="category-filter" class="form-label">Category</label>
+<select id="category-filter" class="form-select">
+<option value="all">All categories</option><option value="breakfast">Breakfast</option>
+<option value="doner">Döner</option><option value="hot-dishes">Hot dishes</option>
+<option value="pizza">Pizza</option><option value="salads">Salads</option><option value="soups">Soups</option>
+</select></div>
+<div class="col-md-6"><label for="price-filter" class="form-label">Maximum price (₸)</label>
+<input id="price-filter" class="form-control" type="number" min="0" step="100" placeholder="Any price"></div>
+</div>
+<details class="menu-basket">
+<summary><span>Your basket</span><strong id="basket-summary" aria-live="polite">0 portions · 0 ₸</strong></summary>
+<div class="basket-content">
+<ul id="basket-list" class="list-unstyled" aria-live="polite"></ul>
+<p id="basket-total" class="fw-bold" aria-live="polite"></p>
+<button id="clear-basket" class="btn btn-outline-dark btn-sm" type="button">Clear basket</button>
+</div></details></div>
+<p id="menu-empty" class="py-3" role="status" hidden>No dishes found. Try another filter.</p>
+<div class="row g-4" id="menu-items">
+<div class="col-12 col-md-6 col-lg-4"><article class="card h-100" id="category-breakfast"><div class="card-body">
+<p class="small text-brand-accent fw-bold">01</p>
+<h3 class="h4">Breakfast</h3>
+<ul class="list-unstyled mb-0"></ul>
+
+</div></article></div>
+<div class="col-12 col-md-6 col-lg-4"><article class="card h-100" id="category-doner"><div class="card-body">
+<p class="small text-brand-accent fw-bold">02</p>
+<h3 class="h4">Döner</h3>
+<ul class="list-unstyled mb-0"></ul>
+
+</div></article></div>
+<div class="col-12 col-md-6 col-lg-4"><article class="card h-100" id="category-hot-dishes"><div class="card-body">
+<p class="small text-brand-accent fw-bold">03</p>
+<h3 class="h4">Hot dishes</h3>
+<ul class="list-unstyled mb-0"></ul>
+
+</div></article></div>
+<div class="col-12 col-md-6 col-lg-4"><article class="card h-100" id="category-pizza"><div class="card-body">
+<p class="small text-brand-accent fw-bold">04</p>
+<h3 class="h4">Pizza · 35 cm</h3>
+<ul class="list-unstyled mb-0"></ul>
+
+</div></article></div>
+<div class="col-12 col-md-6 col-lg-4"><article class="card h-100" id="category-salads"><div class="card-body">
+<p class="small text-brand-accent fw-bold">05</p>
+<h3 class="h4">Salads</h3>
+<ul class="list-unstyled mb-0"></ul>
+
+</div></article></div>
+<div class="col-12 col-md-6 col-lg-4"><article class="card h-100" id="category-soups"><div class="card-body">
+<p class="small text-brand-accent fw-bold">06</p>
+<h3 class="h4">Soups</h3>
+<ul class="list-unstyled mb-0"></ul>
+
+</div></article></div>
+</div>
+<div id="generated-menu-items" class="row g-4" aria-live="polite"></div>
+<p class="mt-4 mb-0"><a href="https://tr.restaurantguru.com/Istanbul-Restoran-Astana/menu" target="_blank" rel="noopener noreferrer">Published menu and prices</a> · <a href="https://2gis.kz/astana/firm/70000001069922617/tab/menu" target="_blank" rel="noopener noreferrer">Restaurant menu on 2GIS</a></p>
+</div></section>
+<section aria-labelledby="notes-title" class="py-5 bg-dark text-white" id="dish-question">
+<div class="container"><div class="row g-4 align-items-start">
+<div class="col-12 col-lg-7">
+<p class="small fw-bold text-uppercase text-brand-accent mb-3">Ordering notes</p>
+<h2 class="display-5 mb-4" id="notes-title">Before you choose</h2>
+<ol start="1">
+<li>Compare the published dishes and prices.</li>
+<li>Add dishes to your basket and check the total.</li>
+<li>Plan your visit, then confirm availability and ingredients with the restaurant.</li>
+</ol>
+<blockquote>
+<p><q>Large portions and very tasty dishes.</q></p>
+<footer>— Dasha Agafonova, <cite>2GIS review</cite></footer>
+</blockquote>
+</div>
+<aside class="col-12 col-lg-5 bg-body text-dark p-4 border-start border-warning border-4 shadow-sm">
+<h3 class="h4 mb-3">Ask before ordering</h3>
+<p>
+<mark>Tell staff about allergies.</mark> Confirm ingredients, availability and
+              current prices directly with the restaurant.
+            </p>
+<p><a class="fw-semibold text-decoration-underline" href="tel:+77021006288">Call +7 702 100 62 88 →</a></p>
+<p><small>Availability and prices can change.</small></p>
+</aside>
+</div></div>
+</section>
+</main>
+<footer class="site-footer text-break bg-dark text-white">
+  <div class="container py-4"><div class="row g-4 align-items-center">
+    <div class="col-12 col-lg-5 d-flex align-items-center gap-3">
+      <img alt="" class="object-fit-contain flex-shrink-0" width="80" height="80" src="images/istanbul-logo.jpg">
+      <small>Istanbul · Uly Dala 56<br><a class="link-light" href="tel:+77021006288">+7 702 100 62 88</a><br>© 2026 Sanzhar, Jasulan and Madi</small>
+    </div>
+    <nav class="col-12 col-lg-7" aria-label="Footer navigation">
+      <ul class="d-flex flex-wrap justify-content-lg-end gap-3 list-unstyled mb-0">
+<li><a class="link-light" href="index.html">Home</a></li>
+<li><a class="link-light" href="menu.html">Menu</a></li>
+<li><a class="link-light" href="visit.html">Visit</a></li>
+<li><a class="link-light" href="gallery.html">Gallery</a></li>
+<li><a class="link-light" href="about.html">About</a></li>
+<li><a class="link-light" href="faq.html">FAQ</a></li>
+<li><a class="link-light" href="feedback.html">Feedback</a></li>
+<li><a class="link-light" href="colophon.html">Colophon</a></li>
+</ul>
+    </nav>
+  </div></div>
+</footer>
+<script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+
+<script src="js/main.js" defer></script>
+<script src="js/menu.js" defer></script>
+</body>
+</html>
