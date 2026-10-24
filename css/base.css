@@ -1,0 +1,138 @@
+/* Bootstrap 5.3.8 supplies layout, spacing, buttons and responsive behavior.
+   This file keeps Istanbul's palette, type and details Bootstrap does not provide. */
+:root {
+  --brand-ink: #11110f;
+  --brand-paper: ivory;
+  --brand-gold: #f4bd2e;
+  --brand-flame: #b8291d;
+}
+body {
+  background: var(--brand-paper);
+  color: var(--brand-ink);
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+h1, h2, h3, h4 {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -.035em;
+}
+.text-brand-accent { color: var(--brand-flame); }
+.bg-dark .text-brand-accent,
+.brand-brown .text-brand-accent { color: var(--brand-gold); }
+.brand-brown { background: #3b2d24; }
+/* Match Bootstrap's button variables to the restaurant logo. */
+.btn-warning {
+  --bs-btn-bg: var(--brand-gold);
+  --bs-btn-border-color: var(--brand-gold);
+  --bs-btn-hover-bg: #e4ab1d;
+  --bs-btn-hover-border-color: #e4ab1d;
+}
+.brand-logo { width: 8.25rem; height: 5.25rem; object-fit: contain; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 102;
+}
+.footer-logo { width: 5rem; height: 5rem; object-fit: contain; }
+.navbar .nav-link[aria-current="page"] {
+  color: var(--brand-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--brand-gold);
+  text-underline-offset: .5em;
+}
+/* The photo stays structural; this gradient only protects text contrast. */
+.home-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(17,17,15,.94), rgba(17,17,15,.55) 55%, rgba(17,17,15,.08));
+  pointer-events: none;
+}
+.hero-image { object-position: 60% center; }
+.cta-image { max-height: 28rem; }
+.hero-image, .cta-image { object-fit: cover; }
+/* Keep the keyboard skip link reachable without occupying normal layout space. */
+.skip-link {
+  position: fixed;
+  top: -6rem;
+  left: 1rem;
+  z-index: 1080;
+  padding: .75rem 1rem;
+  background: var(--brand-gold);
+  color: var(--brand-ink);
+}
+.skip-link:focus { top: 1rem; }
+/* Native form submission targets a prebuilt result; future JS uses the same states. */
+.form-result { display: none; }
+.form-result:target { display: block; }
+.result-panel:target .form-result { display: block; }
+.result-panel:target .result-idle { display: none; }
+.faq-stepss {
+  margin: 0;
+  padding: 32px;
+  list-style: none;
+  border: 1px solid rgba(17, 17, 15, 0.2);
+  display: grid;
+  border-radius: 8px;
+}
+
+/* Keep the shared sticky header clear of linked headings and form results. */
+html { scroll-padding-top: 8rem; }
+[id] { scroll-margin-top: 8rem; }
+[class*="col-"] { min-width: 0; }
+.site-footer a, address, pre { overflow-wrap: anywhere; }
+pre { max-width: 100%; overflow-x: auto; }
+.faq-steps { padding-left: 0; display: grid; gap: 1rem; margin-top: 2rem; }
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible, [tabindex="-1"]:focus-visible {
+  outline: 3px solid var(--brand-gold);
+  outline-offset: 3px;
+}
+
+/* State hooks are shared by all four forms and future generated content. */
+.is-hidden { display: none !important; }
+.is-active { font-weight: 700; text-decoration: underline; }
+.is-selected { border-color: var(--brand-gold) !important; box-shadow: 0 0 0 2px var(--brand-gold); }
+.is-error { color: #842029; background: #f8d7da; border: 1px solid #842029; border-radius: .375rem; }
+.is-success { color: #0f5132; background: #d1e7dd; border: 1px solid #0f5132; border-radius: .375rem; }
+.field-error { color: #842029; display: block; margin-top: .375rem; }
+.form-control.is-error, .form-select.is-error { background-color: white; border-color: #842029; }
+.cascade-demo { letter-spacing: .28em; }
+
+@media (max-width: 575.98px) {
+  .brand-logo { width: 6.5rem; height: 4rem; }
+  .navbar .nav-link { padding-block: .6rem; }
+  .faq-stepss { padding: 1.25rem; }
+}
+
+/* Menu filters, inline add buttons and expandable basket. */
+.menu-tools { margin: 24px 0; }
+.menu-tools > .row { max-width: 680px; }
+.menu-basket { background: #fff9e8; border: 1px solid #e6d7ad; border-radius: 12px; margin-bottom: 24px; }
+.menu-basket summary { cursor: pointer; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.menu-basket summary::after { content: "+"; font-size: 22px; }
+.menu-basket[open] summary::after { content: "−"; }
+.menu-basket summary strong { margin-left: auto; }
+.menu-basket summary:focus-visible { outline: 3px solid var(--brand-gold); outline-offset: 3px; }
+.basket-content { padding: 0 20px 20px; }
+.basket-row { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid #e6d7ad; font-size: .9rem; }
+.basket-row strong { white-space: nowrap; }
+.dish-actions { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+.dish-add { width: 30px; height: 30px; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #dfc578; border-radius: 50%; background: #fff5d6; color: #563b0a; font: 22px/1 Arial, sans-serif; cursor: pointer; }
+.dish-add:hover { background: var(--brand-gold); }
+.dish-add:focus-visible { outline: 3px solid var(--brand-ink); outline-offset: 3px; }
+#menu-items li { align-items: center; }
+#menu-items li > span { flex: 1; min-width: 110px; }
+#menu-items [hidden] { display: none !important; }
+
+/* Center the full photo and keep controls inside the viewport. */
+.photo-viewer { width: 65vw; max-width: 1100px; height: 80vh; max-height: 90dvh; margin: auto; overflow: hidden; }
+.photo-viewer[open] { display: grid; grid-template-rows: minmax(0, 1fr) auto auto; gap: 12px; }
+.photo-viewer .photo-viewer-image { width: 100%; height: 100%; min-height: 0; object-fit: contain; }
+.photo-viewer > p { margin: 0; font-size: .9rem; }
+.photo-viewer::backdrop { background: rgb(0 0 0 / 65%); }
+@media (max-width: 767px) {
+  .photo-viewer { width: 94vw; height: 75vh; }
+}
+
+.basket-row { flex-wrap: wrap; }
+.basket-controls { flex-basis: 100%; }
