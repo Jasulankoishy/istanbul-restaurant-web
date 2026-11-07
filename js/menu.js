@@ -167,6 +167,8 @@ function renderProducts(items) {
 }
 function showProducts() {
     const matches = filterProducts(products, categoryFilter.val(), priceFilter.val(), menuSearch.val());
+    if (sortOrder.val() === "low") matches.sort((a, b) => a.price - b.price);
+    if (sortOrder.val() === "high") matches.sort((a, b) => b.price - a.price);
     const count = renderProducts(matches);
     menuCount.text(count + " of " + products.length + " dishes found");
     $("#menu-empty").prop("hidden", count !== 0);
@@ -240,11 +242,17 @@ const menuSearch = jqElement("input", "", "form-control mb-2").attr({id: "menu-s
 const resetFilters = jqElement("button", "Reset filters", "btn btn-outline-dark btn-sm").attr("type", "button");
 const menuCount = jqElement("p", "", "small mt-2").attr("role", "status");
 searchGroup.append(jqElement("label", "Search dishes", "form-label").attr("for", "menu-search"), menuSearch, resetFilters, menuCount);
+const sortOrder = $("<select>").attr("id", "menu-sort").addClass("form-select mb-2");
+sortOrder.append($("<option>").val("").text("Menu order"),
+    $("<option>").val("low").text("Lowest price first"),
+    $("<option>").val("high").text("Highest price first"));
+resetFilters.before($("<label>").attr("for", "menu-sort").addClass("form-label").text("Sort within categories"), sortOrder);
+sortOrder.on("change", showProducts);
 menuSearch.on("input", showProducts);
 categoryFilter.on("change", showProducts);
 priceFilter.on("input", showProducts);
 resetFilters.on("click", function () {
-    categoryFilter.val("all"); priceFilter.val(""); menuSearch.val("");
+    categoryFilter.val("all"); priceFilter.val(""); menuSearch.val(""); sortOrder.val("");
     showProducts(); menuSearch.trigger("focus");
 });
 // Delegation belongs to the existing parent: filter rendering recreates the buttons,
