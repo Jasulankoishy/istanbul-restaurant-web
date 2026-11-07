@@ -67,6 +67,14 @@ Before submission, review the target repository and its existing midterm tag. Cr
 
 ## jQuery revision
 
-Menu/basket, FAQ search and answer disclosure, and Visit validation use jQuery 3.7.1 from its CDN. An internet connection is needed on these pages. Scripts wait for DOM readiness. Previous implementations are preserved in `js/old-js-version.js`, which is not loaded. `js/jquery-forms.js` handles Visit and FAQ; Feedback continues to use the independent plain-JavaScript form helper. Rewritten features use jQuery DOM/event methods without duplicate plain-JavaScript handlers.
+Menu/basket, FAQ search and answer disclosure, and Visit validation use jQuery 3.7.1 from its CDN. An internet connection is needed on these pages. Scripts wait for DOM readiness. Previous implementations are preserved in `js/old-js-version.js`, which is not loaded. `js/jquery-forms.js` handles FAQ; Visit keeps its validation rules in `js/visit.js`; Feedback continues to use the independent plain-JavaScript form helper. Rewritten features use jQuery DOM/event methods without duplicate plain-JavaScript handlers.
 
 Delegated menu and basket events handle rows recreated after filtering or quantity changes. FAQ disclosure uses slideToggle; order review uses slideDown/slideUp; confirmation uses fadeIn with a focus callback. Visit resets after successful validation while preserving its confirmation summary. Existing CSS classes are reused.
+
+
+## Endterm updates
+
+- **jQuery — Menu:** sort dishes by price within each category while keeping the existing filters. Reset returns to menu order.
+- **Plain JavaScript — Gallery:** filter photos by Inside/Outside, show the result count, and browse only matching photos in the viewer.
+
+The team should verify the feature ownership and review record before tagging the submission.
